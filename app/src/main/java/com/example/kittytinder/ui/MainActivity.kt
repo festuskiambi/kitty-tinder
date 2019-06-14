@@ -1,7 +1,8 @@
-package com.example.kittytinder
+package com.example.kittytinder.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.kittytinder.R
 
 class MainActivity : AppCompatActivity() {
 
