@@ -6,7 +6,7 @@ import com.example.kittytinder.data.Vote
 /**
  * Created by Festus Kiambi on 6/14/19.
  */
-interface CatsDataSource {
+interface ICatsDataSource {
 
     suspend fun getCatImages(): List<CatImage>?
 
