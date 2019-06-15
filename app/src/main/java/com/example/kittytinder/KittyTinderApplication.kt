@@ -5,6 +5,7 @@ import android.app.Application
 import com.example.kittytinder.di.components.DaggerAppComponent
 import com.example.kittytinder.di.modules.AppModule
 import com.example.kittytinder.di.modules.NetModule
+import com.example.kittytinder.util.Constants
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
@@ -22,7 +23,7 @@ class KittyTinderApplication: Application(), HasActivityInjector {
         super.onCreate()
         DaggerAppComponent.builder()
             .appModule(AppModule(this))
-            .netModule(NetModule())
+            .netModule(NetModule( Constants.BASE_URL))
             .build().inject(this)
     }
     override fun activityInjector(): AndroidInjector<Activity> = activityInjector
