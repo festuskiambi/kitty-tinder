@@ -10,7 +10,7 @@ import retrofit2.http.Query
  */
 interface ApiInterface {
 
-    @GET("/images/search")
+    @GET("images/search")
     suspend fun getCatImages(
         @Query("x-api-key") apiKey: String,
         @Query("limit") limit: Int

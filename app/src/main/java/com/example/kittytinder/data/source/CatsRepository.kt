@@ -3,7 +3,7 @@ package com.example.kittytinder.data.source
 import com.example.kittytinder.data.CatImage
 import com.example.kittytinder.data.Vote
 import com.example.kittytinder.data.source.remote.ApiInterface
-import com.example.kittytinder.util.Constants.Companion.API_KEY
+import com.example.kittytinder.util.Constants
 import javax.inject.Inject
 
 /**
@@ -11,10 +11,9 @@ import javax.inject.Inject
  */
 class CatsRepository @Inject constructor(private val apiInterface: ApiInterface) : ICatsDataSource {
     override suspend fun getCatImages(): List<CatImage>? {
-        return apiInterface.getCatImages(API_KEY,100).body()
+        return apiInterface.getCatImages(Constants.API_KEY,100).body()
     }
 
     override suspend fun saveVote(vote: Vote) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

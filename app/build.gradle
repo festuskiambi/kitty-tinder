@@ -7,12 +7,11 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 
-
 android {
     compileSdkVersion build_versions.target_sdk
     defaultConfig {
         applicationId "com.example.mi_post"
-        minSdkVersion  build_versions.min_sdk
+        minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk
         versionCode 1
         versionName "1.0"
@@ -60,7 +59,8 @@ dependencies {
     //kotlin
     implementation deps.kotlin.stdlib
     testImplementation deps.kotlin.test
-    implementation deps.kotlin.plugin
+    implementation deps.kotlin.coroutines_core
+    implementation deps.kotlin.coroutines_android
 
     //retrofit
     implementation deps.retrofit.retrofit
@@ -74,6 +74,13 @@ dependencies {
 
     //moshi
     implementation deps.moshi.moshi
+
+    //glide
+//    implementation deps.glide.runtime
+//    annotationProcessor deps.glide.compiler
+
+    //card stack view
+    implementation deps.cardStackView.card
 
     //room
     implementation deps.room.runtime
