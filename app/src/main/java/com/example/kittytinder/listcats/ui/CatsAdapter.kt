@@ -1,27 +1,49 @@
 package com.example.kittytinder.listcats.ui
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.kittytinder.R
 import com.example.kittytinder.data.CatImage
+import kotlinx.android.synthetic.main.item_cat.view.*
 
 /**
  * Created by Festus Kiambi on 6/16/19.
  */
-class CatsAdapter (private var catsList :List<CatImage>) : RecyclerView.Adapter<CatsAdapter.ViewHolder>() {
+class CatsAdapter(private var catsList: List<CatImage>) : RecyclerView.Adapter<CatsAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val inflater = LayoutInflater.from(parent.context)
+        return ViewHolder(
+            inflater.inflate(R.layout.item_cat, parent, false)
+        )
     }
 
     override fun getItemCount(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return catsList.size
+    }
+
+    fun setCatslist(catsList: List<CatImage>) {
+        this.catsList = catsList
+    }
+
+    fun getCatsList(): List<CatImage> {
+        return catsList
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val catImage = catsList[position]
+
+        Glide.with(holder.image)
+            .load(catImage.url)
+            .into(holder.image)
     }
 
-    class ViewHolder(view : View): RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        var image: ImageView = view.item_image
 
     }
+
 }

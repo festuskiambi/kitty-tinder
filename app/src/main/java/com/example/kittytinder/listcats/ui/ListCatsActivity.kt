@@ -6,7 +6,6 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.kittytinder.R
-import com.example.kittytinder.listcats.ListCatEvent
 import com.example.kittytinder.listcats.viewmodel.ListCatsViewModel
 import com.example.kittytinder.listcats.viewmodel.ListCatsViewModelFactory
 import com.yuyakaido.android.cardstackview.CardStackListener
