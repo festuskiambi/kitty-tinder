@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.kittytinder.common.BaseViewModel
 import com.example.kittytinder.data.CatImage
 import com.example.kittytinder.data.source.ICatsDataSource
-import com.example.kittytinder.listcats.ListCatEvent
+import com.example.kittytinder.listcats.ui.ListCatEvent
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
