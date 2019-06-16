@@ -10,7 +10,7 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion build_versions.target_sdk
     defaultConfig {
-        applicationId "com.example.mi_post"
+        applicationId "com.example.kittytinder"
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk
         versionCode 1
@@ -76,8 +76,8 @@ dependencies {
     implementation deps.moshi.moshi
 
     //glide
-//    implementation deps.glide.runtime
-//    annotationProcessor deps.glide.compiler
+    implementation deps.glide.runtime
+    annotationProcessor deps.glide.compiler
 
     //card stack view
     implementation deps.cardStackView.card
