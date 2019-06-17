@@ -2,6 +2,7 @@ package com.example.kittytinder.listcats.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
@@ -27,6 +28,8 @@ class ListCatsActivity : AppCompatActivity(), CardStackListener {
     private val manager by lazy { CardStackLayoutManager(this, this) }
     private val adapter by lazy { CatsAdapter() }
 
+    private var currentPosition = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_cat)
@@ -37,6 +40,11 @@ class ListCatsActivity : AppCompatActivity(), CardStackListener {
             .get(ListCatsViewModel::class.java)
 
         initViews()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+//        cardStackView.adapter = null
     }
 
     private fun initViews() {
@@ -125,12 +133,15 @@ class ListCatsActivity : AppCompatActivity(), CardStackListener {
     }
 
     override fun onCardSwiped(direction: Direction?) {
+        viewModel.handleEvent(ListCatEvent.OnSwipe(currentPosition,direction))
+   Log.d("swiped", "${currentPosition} ${direction}" )
     }
 
     override fun onCardCanceled() {
     }
 
     override fun onCardAppeared(view: View?, position: Int) {
+        currentPosition = position
     }
 
     override fun onCardRewound() {

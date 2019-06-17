@@ -14,18 +14,17 @@ data class Vote(
 
 	@Json(name="country_code")
 	@ColumnInfo(name = "country_code")
-	val countryCode: Any? = null,
+	val countryCode: String? = null,
 
 	@Json(name="sub_id")
 	@ColumnInfo(name = "sub_id")
-	val subId: Any? = null,
+	val subId: String? = null,
 
 	@Json(name="created_at")
 	@ColumnInfo(name = "created_at")
 	val createdAt: String? = null,
 
 	@Json(name="image_id")
-	@ColumnInfo(name = "image_id")
 	val imageId: String? = null,
 
 	@Json(name="value")

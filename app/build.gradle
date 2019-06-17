@@ -84,6 +84,7 @@ dependencies {
 
     //rounded image view
     implementation deps.roundedImageView.roundView
+
     //room
     implementation deps.room.runtime
     kapt deps.room.compiler

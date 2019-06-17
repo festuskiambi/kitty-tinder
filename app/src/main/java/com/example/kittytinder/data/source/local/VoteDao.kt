@@ -11,5 +11,5 @@ import com.example.kittytinder.data.Vote
 @Dao
  abstract class VoteDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    abstract fun insertPost(vote :Vote)
+    abstract fun insertVote(vote :Vote)
 }
