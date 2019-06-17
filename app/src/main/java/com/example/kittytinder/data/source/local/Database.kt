@@ -1,6 +1,7 @@
 package com.example.kittytinder.data.source.local
 
 import androidx.room.Database
+import androidx.room.RoomDatabase
 import com.example.kittytinder.data.Vote
 
 /**
@@ -9,6 +10,6 @@ import com.example.kittytinder.data.Vote
 @Database(
     entities = [Vote::class], version = 1
 )
-abstract class Database {
-    abstract fun voteDao(): VoteDao
+abstract class Database: RoomDatabase() {
+    abstract fun votesDao(): VoteDao
 }
