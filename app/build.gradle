@@ -45,7 +45,7 @@ android {
 }
 
 dependencies {
-    //App dependencies
+    //Android dependencies
     implementation deps.support.constraint_layout
     implementation deps.support.lifecycle_extensions
     implementation deps.support.appcompat

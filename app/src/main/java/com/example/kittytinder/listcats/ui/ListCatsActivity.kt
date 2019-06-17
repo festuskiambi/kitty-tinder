@@ -7,12 +7,14 @@ import android.view.View
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.LinearInterpolator
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DefaultItemAnimator
 import com.example.kittytinder.R
 import com.example.kittytinder.listcats.viewmodel.ListCatsViewModel
 import com.example.kittytinder.listcats.viewmodel.ListCatsViewModelFactory
+import com.example.kittytinder.util.NetworkConnectivity
 import com.yuyakaido.android.cardstackview.*
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_list_cat.*
@@ -40,15 +42,18 @@ class ListCatsActivity : AppCompatActivity(), CardStackListener {
             .get(ListCatsViewModel::class.java)
 
         initViews()
+
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-//        cardStackView.adapter = null
-    }
 
     private fun initViews() {
-        viewModel.handleEvent(ListCatEvent.OnStart)
+
+        if (NetworkConnectivity(this).isConnected()) {
+            viewModel.handleEvent(ListCatEvent.OnStart)
+        } else {
+            Toast.makeText(this, "Check your network connection and retry", Toast.LENGTH_SHORT).show()
+
+        }
         observeViewModel()
         setupCardStackView()
         setupButtons()
@@ -133,8 +138,8 @@ class ListCatsActivity : AppCompatActivity(), CardStackListener {
     }
 
     override fun onCardSwiped(direction: Direction?) {
-        viewModel.handleEvent(ListCatEvent.OnSwipe(currentPosition,direction))
-   Log.d("swiped", "${currentPosition} ${direction}" )
+        viewModel.handleEvent(ListCatEvent.OnSwipe(currentPosition, direction))
+        Log.d("swiped", "${currentPosition} ${direction}")
     }
 
     override fun onCardCanceled() {

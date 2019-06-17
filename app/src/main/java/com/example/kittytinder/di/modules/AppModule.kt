@@ -23,7 +23,7 @@ class AppModule(val app: Application) {
     fun provideApplication(): Application = app
 
     @Provides
-    fun provideCatsIcatsDataSource(apiInterface: ApiInterface, votesDao: VoteDao): ICatsDataSource{
+    fun provideCatsICatsDataSource(apiInterface: ApiInterface, votesDao: VoteDao): ICatsDataSource{
         return CatsRepository(apiInterface,votesDao)
     }
 
