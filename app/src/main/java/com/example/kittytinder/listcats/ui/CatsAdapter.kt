@@ -13,7 +13,10 @@ import kotlinx.android.synthetic.main.item_cat.view.*
 /**
  * Created by Festus Kiambi on 6/16/19.
  */
-class CatsAdapter(private var catsList: List<CatImage>) : RecyclerView.Adapter<CatsAdapter.ViewHolder>() {
+class CatsAdapter : RecyclerView.Adapter<CatsAdapter.ViewHolder>() {
+
+    private var catsList: List<CatImage> = emptyList()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return ViewHolder(
@@ -26,7 +29,9 @@ class CatsAdapter(private var catsList: List<CatImage>) : RecyclerView.Adapter<C
     }
 
     fun setCatslist(catsList: List<CatImage>) {
+
         this.catsList = catsList
+        notifyDataSetChanged()
     }
 
     fun getCatsList(): List<CatImage> {
