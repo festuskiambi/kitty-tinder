@@ -7,8 +7,8 @@ import com.example.kittytinder.data.CatImage
  * Created by Festus Kiambi on 6/17/19.
  */
 class CatsDiffCallback(
-private val old: List<CatImage>,
-private val new: List<CatImage>
+    private val old: List<CatImage>,
+    private val new: List<CatImage>
 ) : DiffUtil.Callback() {
 
     override fun getOldListSize(): Int {
